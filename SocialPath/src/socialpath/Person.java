@@ -10,11 +10,13 @@ package socialpath;
  * @author chunfang
  */
 public class Person {
+    private String name;
     private int div_rate;
     private int lun_time;
     private int lun_period;
     
-    public Person(int div_rate,int lun_time, int lun_period){
+    public Person(String name, int div_rate,int lun_time, int lun_period){
+        this.name = name;
         this.div_rate = div_rate;
         this.lun_period = lun_period;
         this.lun_time = lun_time;
@@ -44,4 +46,7 @@ public class Person {
         this.lun_period = lun_period;
     }
     
+    public String toString(){
+        return name;
+    }
 }
