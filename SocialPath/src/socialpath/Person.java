@@ -1,23 +1,43 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package socialpath;
+
+import java.util.LinkedList;
 
 /**
  *
  * @author chunfang
  */
 public class Person {
+    private String name;
     private int div_rate;
     private int lun_time;
     private int lun_period;
-    
-    public Person(int div_rate,int lun_time, int lun_period){
-        this.div_rate = div_rate;
-        this.lun_period = lun_period;
-        this.lun_time = lun_time;
+    LinkedList<Friend> friend = new LinkedList<>();
+
+    public Person(String name) {
+        this.name = name;
+    }
+
+    public void addF(Person p2, int w){
+        Friend f = new Friend(p2,w);
+        friend.add(f);
+    }
+
+    public void setF(Person p2,double love){
+        int a=0;
+        for(int i=0;i<friend.size();i++) {
+            if (friend.get(i).friendDetail().equals(p2)) {
+                a=i;
+            }
+        }
+        friend.get(a).setLove(love);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getDiv_rate() {
@@ -43,5 +63,8 @@ public class Person {
     public void setLun_period(int lun_period) {
         this.lun_period = lun_period;
     }
-    
+    public String toString(){
+        return name;
+    }
+
 }
