@@ -30,11 +30,15 @@ public class Person {
             throw new IllegalArgumentException("Lunch period should be 6-59.");
         }
     }
+    
+    public String getName() {
+        return name;
+    }
 
     public int getDiv_rate() {
         return div_rate;
     }
-
+    
     public void setDiv_rate(int div_rate) {
         this.div_rate = div_rate;
     }
