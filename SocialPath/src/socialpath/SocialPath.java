@@ -93,4 +93,40 @@ public class SocialPath {
 
     }
     
+    //Event 2
+    public static DefaultDirectedWeightedGraph<Person, DefaultEdge> chitchat(DefaultDirectedWeightedGraph<Person, DefaultEdge> a){
+        Scanner sc=new Scanner(System.in);
+        double newWeight=0;
+        String[]arr =new String[4];
+        System.out.println("Enter the conclusion of chitchat: (A says good/bad about B to C)");
+        String s=sc.nextLine();
+        String[] arr1=s.split(" ");
+        System.out.println(arr1.toString());
+        arr[0]=arr1[0];
+        arr[1]=arr1[4];
+        arr[2]=arr1[6];
+        arr[3]=arr1[2];
+        try {
+            Person personA = a.vertexSet().stream().filter(person -> person.getName().equals(arr[0])).findAny().get();
+            Person personB = a.vertexSet().stream().filter(person -> person.getName().equals(arr[1])).findAny().get();
+            Person personC = a.vertexSet().stream().filter(person -> person.getName().equals(arr[2])).findAny().get();
+
+            if (arr[3].equals("good")) {
+                double A_B = a.getEdgeWeight(a.getEdge(personA, personB));
+                newWeight = (A_B * 0.5) + a.getEdgeWeight(a.getEdge(personC, personB));
+                a.setEdgeWeight(a.getEdge(personC, personB), newWeight);
+            } else if (arr[3].equals("bad")) {
+                double A_B = a.getEdgeWeight(a.getEdge(personA, personB));
+                newWeight = a.getEdgeWeight(a.getEdge(personC, personB)) - A_B;
+                a.setEdgeWeight(a.getEdge(personC, personB), newWeight);
+            } else {
+                System.out.println("Your input format is wrong.");
+            }
+
+            return a;
+        }catch (NoSuchElementException e){
+            System.out.println("There is no connection between the input vertices.");
+            return a;
+        }
+    
 }
