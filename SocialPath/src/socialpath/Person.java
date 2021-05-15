@@ -20,6 +20,15 @@ public class Person {
         this.div_rate = div_rate;
         this.lun_period = lun_period;
         this.lun_time = lun_time;
+         if(div_rate>=100 || div_rate<=0) {
+            throw new IllegalArgumentException("Diving rate need to be 1%-99%");
+        }
+        if(lun_time>1400 || lun_time<1100){
+            throw new IllegalArgumentException("Lunch time should be 1100-1400.");
+        }
+        if(lun_period>=60 || lun_period<=5){
+            throw new IllegalArgumentException("Lunch period should be 6-59.");
+        }
     }
 
     public int getDiv_rate() {
