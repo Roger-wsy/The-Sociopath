@@ -5,6 +5,8 @@
  */
 package socialpath;
 
+import java.util.NoSuchElementException;
+import java.util.Scanner;
 import org.jgrapht.graph.DefaultDirectedWeightedGraph;
 import org.jgrapht.graph.DefaultEdge;
 
@@ -128,5 +130,5 @@ public class SocialPath {
             System.out.println("There is no connection between the input vertices.");
             return a;
         }
-    
+    }
 }
