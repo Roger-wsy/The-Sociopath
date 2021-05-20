@@ -38,56 +38,52 @@ public class Event2 {
         arr[2] = arr1[6]; //Person C
         arr[3] = arr1[2]; //good or bad
         try {
-            Person personA=r.getPerson(arr[0]);
-            Person personB=r.getPerson(arr[1]);
-            Person personC=r.getPerson(arr[2]);
+            Person personA = r.getPerson(arr[0]);
+            Person personB = r.getPerson(arr[1]);
+            Person personC = r.getPerson(arr[2]);
 
             if (arr[3].equals("good")) {
-                int AtoB=0;
-                int CtoB=0;
-                for(int i=0;i<personA.friend.size();i++){
-                    if(personA.friend.get(i).friendDetail().equals(personB)) {
-                        AtoB= i;
+                int AtoB = 0;
+                int CtoB = 0;
+                for (int i = 0; i < personA.friend.size(); i++) {
+                    if (personA.friend.get(i).friendDetail().equals(personB)) {
+                        AtoB = i;
                     }
                 }
-                for(int i=0;i<personC.friend.size();i++){
-                    if(personC.friend.get(i).friendDetail().equals(personB)) {
+                for (int i = 0; i < personC.friend.size(); i++) {
+                    if (personC.friend.get(i).friendDetail().equals(personB)) {
                         CtoB = i;
                     }
                 }
-                double A_B=personA.friend.get(AtoB).getLove();
-                newWeight=(A_B*0.5)+personC.friend.get(CtoB).getLove();
+                double A_B = personA.friend.get(AtoB).getLove();
+                newWeight = (A_B * 0.5) + personC.friend.get(CtoB).getLove();
                 personC.setF(personB, newWeight);
 
-           } else if (arr[3].equals("bad")) {
-                int AtoB=0;
-                int CtoB=0;
-                for(int i=0;i<personA.friend.size();i++){
-                    if(personA.friend.get(i).friendDetail().equals(personB)) {
-                        AtoB= i;
+            } else if (arr[3].equals("bad")) {
+                int AtoB = 0;
+                int CtoB = 0;
+                for (int i = 0; i < personA.friend.size(); i++) {
+                    if (personA.friend.get(i).friendDetail().equals(personB)) {
+                        AtoB = i;
                     }
                 }
-                for(int i=0;i<personC.friend.size();i++){
-                    if(personC.friend.get(i).friendDetail().equals(personB)) {
+                for (int i = 0; i < personC.friend.size(); i++) {
+                    if (personC.friend.get(i).friendDetail().equals(personB)) {
                         CtoB = i;
                     }
                 }
-                double A_B=personA.friend.get(AtoB).getLove();
-                newWeight=personC.friend.get(CtoB).getLove()-A_B;
+                double A_B = personA.friend.get(AtoB).getLove();
+                newWeight = personC.friend.get(CtoB).getLove() - A_B;
                 personC.setF(personB, newWeight);
 
-           } else {
+            } else {
                 System.out.println("Your input format is wrong.");
-           }
+            }
 
         } catch (NoSuchElementException e) {
             System.out.println("There is no connection between the input vertices.");
             return r;
         }
-            return r;
+        return r;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/main

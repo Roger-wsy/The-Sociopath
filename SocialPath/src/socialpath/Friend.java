@@ -10,17 +10,19 @@ package socialpath;
  * @author chunfang
  */
 public class Friend {
-    private Person f ;
+    private Person f;
     private double love;
 
     public Friend(Person f, double love) {
         this.f = f;
         this.love = love;
     }
-    public String toString(){
-        return f.getName() +" weight : "+love;
+
+    public String toString() {
+        return f.getName() + " weight : " + love;
     }
-    public Person friendDetail(){
+
+    public Person friendDetail() {
         return f;
     }
 
@@ -31,8 +33,4 @@ public class Friend {
     public void setLove(double love) {
         this.love = love;
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/main
