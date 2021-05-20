@@ -86,4 +86,8 @@ public class Event2 {
         }
             return r;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/main

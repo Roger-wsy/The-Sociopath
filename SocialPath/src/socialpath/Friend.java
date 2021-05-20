@@ -31,4 +31,8 @@ public class Friend {
     public void setLove(double love) {
         this.love = love;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/main
