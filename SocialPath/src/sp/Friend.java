@@ -11,9 +11,9 @@ package sp;
  */
 public class Friend {
     private Person f ;
-    private int love;
+    private double love;
 
-    public Friend(Person f, int love) {
+    public Friend(Person f, double love) {
         this.f = f;
         this.love = love;
     }
@@ -23,5 +23,12 @@ public class Friend {
     public Person friendDetail(){
         return f;
     }
-    
+
+    public double getLove() {
+        return love;
+    }
+
+    public void setLove(double love) {
+        this.love = love;
+    }
 }

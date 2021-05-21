@@ -61,5 +61,14 @@ public class Person {
     public String toString(){
         return name;
     }
-    
+
+    public void setF(Person personB, double newWeight) {
+        int a=0;
+        for(int i=0;i<friend.size();i++) {
+            if (friend.get(i).friendDetail().equals(personB)) {
+                a=i;
+            }
+        }
+        friend.get(a).setLove(newWeight);
+    }
 }
