@@ -7,8 +7,6 @@ import java.util.Scanner;
 public class Event1 {
     public static void main(String[] args) {
         Relationship r = new Relationship();
-
-
         labQuestions(r);
         System.out.println(r.toString());
 
