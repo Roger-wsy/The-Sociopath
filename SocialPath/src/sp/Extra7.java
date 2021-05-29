@@ -40,9 +40,9 @@ public class Extra7 {
     public static boolean sixdegree(Relationship r){
         Random rand=new Random();
         int n=rand.nextInt(r.size());
-        Person ken=r.getPerson("Ken Thompson");
         System.out.println("Random person is "+r.getPerson(n).getName()+".");
         r.addPerson("Ken Thompson");
+        Person ken=r.getPerson("Ken Thompson");
         r.addFriend(ken, r.getPerson(n));
         r.addFriend(r.getPerson(n), ken);
 
