@@ -47,7 +47,7 @@ public class Event5 {
         r.addFriend(r.getPerson("10"), r.getPerson("4"));
         r.addFriend(r.getPerson("10"), r.getPerson("9"));
         
-        methodTransfer(r.getPerson("2"),r.getPerson("7"),new ArrayList<Person>());
+        methodTransfer(r.getPerson("7"),r.getPerson("1"),new ArrayList<Person>());
         System.out.println(rumorpath.size());
         if(rumorpath.size()==0){
             System.out.println("impossible to arrive at clush");
@@ -63,7 +63,7 @@ public class Event5 {
                     min_index = i;
                     min = rumorpath.get(i).size();
                 }
-                if(rumorpath.get(i).get(spread).equals(r.getPerson("7"))){
+                if(rumorpath.get(i).get(spread).equals(r.getPerson("1"))){
                     System.out.println("impossible to block the rumor");
                     return;
                 }

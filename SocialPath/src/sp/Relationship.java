@@ -30,6 +30,7 @@ public class Relationship {
     public void addFriend(Person p1 ,Person p2){
         p1.addF(p2, 1);
     }
+
     public Person getPerson(String name){
         for (int i = 0; i < v.size(); i++) {
             if(v.get(i).getName().equals(name)){
@@ -37,6 +38,10 @@ public class Relationship {
             }
         }
         return null;
+    }
+
+    public Person getPerson(int a){
+        return v.get(a);
     }
     public String toString(){
         String z ="All vertex : ";

@@ -58,6 +58,7 @@ public class Person {
     public void setLun_period(int lun_period) {
         this.lun_period = lun_period;
     }
+
     public String toString(){
         return name;
     }
