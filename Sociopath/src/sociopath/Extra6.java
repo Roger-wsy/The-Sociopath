@@ -28,25 +28,16 @@ public class Extra6 {
             while(vaccine != 0 ){
                 cluster.clear();
                 visited.clear();
-                for (int i = 0; i < vaccinated.size(); i++) {
-                    visited.add(vaccinated.get(i));
-                }
-                vaccine--;
                 LinkedList<Person> personlist = r.toLinkedList();
+                for (int j = 0; j < vaccinated.size(); j++) {
+                    visited.add(vaccinated.get(j));
+                }
                 for (int i = 0; i < personlist.size(); i++) {
                     if(!visited.contains(personlist.get(i))){
                         ArrayList<Person> a = new ArrayList<>();
                         BFS(personlist.get(i),a);
                         cluster.add(a);
-                    }
-                }
-                int max_clu_size = 0;
-                int max_clu = -1;
-                for (int i = 0; i < cluster.size(); i++) {
-                    if(cluster.get(i).size()>max_clu_size){
-                        max_clu_size = cluster.get(i).size();
-                        max_clu = i ;
-                    }
+                    } 
                 }
                 for (int i = 0; i < cluster.size(); i++) {
                     System.out.print("Cluster "+(i+1)+" : ");
@@ -55,24 +46,34 @@ public class Extra6 {
                     }
                     System.out.println("");
                 }
-                int maxoutdeg = 0;
-                int maxoutdegindex = -1;
-                for (int i = 0; i < cluster.get(max_clu).size(); i++) {
-                    LinkedList<Friend> f = cluster.get(max_clu).get(i).friend;
-                    int count = 0;
-                    for (int j = 0; j < f.size(); j++) {
-                        if(vaccinated.contains(f.get(j).personDetail())){
-                            count++;
-                        }
+                int max = 0;
+                Person p = null;
+                for (int i = 0; i < personlist.size(); i++) {
+                    cluster.clear();
+                    visited.clear();
+                    
+                    for (int j = 0; j < vaccinated.size(); j++) {
+                        visited.add(vaccinated.get(j));
                     }
-                    int outdeg = f.size() - count;
-                    if(outdeg>maxoutdeg){
-                        maxoutdeg = outdeg;
-                        maxoutdegindex = i;
+                    if(visited.contains(personlist.get(i))){
+                        continue;
+                    }
+                    visited.add(personlist.get(i));
+                    for (int j = 0; j < personlist.size(); j++) {
+                        if(!visited.contains(personlist.get(j))){
+                            ArrayList<Person> a = new ArrayList<>();
+                            BFS(personlist.get(j),a);
+                            cluster.add(a);
+                        } 
+                    }
+                    if(cluster.size()>max){
+                        max = cluster.size();
+                        p = personlist.get(i);
                     }
                 }
-                System.out.println("People vaccinated : "+cluster.get(max_clu).get(maxoutdegindex).getName());
-                vaccinated.add(cluster.get(max_clu).get(maxoutdegindex));
+                vaccinated.add(p);
+                System.out.println("People vaccinated : "+p.getName());
+                vaccine--;
             } 
         }
     }
