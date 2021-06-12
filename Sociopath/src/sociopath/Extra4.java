@@ -20,7 +20,7 @@ import java.util.LinkedList;
 public class Extra4 {
     public static void haveMoreLunch(Person p, Relationship r){
         HashMap<Person,Integer> map = new HashMap<>();
-        System.out.println("Extra 6 running:");
+        System.out.println("Extra feature 4 running:");
         System.out.println(p.getName()+" wants to have lunch with people with high reputation.");
         int start = p.getAveLunT();
         int eat_period = p.getAveLunP();

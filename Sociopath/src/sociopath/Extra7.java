@@ -19,6 +19,7 @@ public class Extra7 {
 
     public static void sixDegree(Relationship r, Person src) {
         path.clear();
+        System.out.println("Extra feature 7 running: ");
         addKen(r);
         methodTransfer(src, r.getPerson("Ken Thompson"), new ArrayList<Person>());
         if (path.size() == 0) {

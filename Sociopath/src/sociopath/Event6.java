@@ -19,9 +19,10 @@ public class Event6 {
         relation_number = 0;
         Scanner sc = new Scanner(System.in);
         Relationship r = new Relationship();
+        System.out.println("Event6 running: ");
         System.out.print("How many friendship exists : ");
         int n = sc.nextInt();
-        System.out.println("person1 --> person2");
+        System.out.println("Output format : example1 --> example2");
         for (int i = 0; i < n; i++) {
             String src = sc.next();
             String des = sc.next();

@@ -20,7 +20,8 @@ public class Extra6 {
         vaccinated.clear();
         cluster.clear();
         visited.clear();
-        System.out.println("Extra 6 running:");
+        System.out.println("Extra feature 6 running:");
+        System.out.println("Total vaccine number : "+vaccine);
         if (vaccine >= r.getSize()){
             System.out.println("Since the number of vaccine >= number of people, everyone is vaccinated.");
         }else{

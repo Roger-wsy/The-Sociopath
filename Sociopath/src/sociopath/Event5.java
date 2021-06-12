@@ -18,7 +18,7 @@ public class Event5 {
         rumorpath.clear();
         Relationship r = new Relationship();
         ArrayList<Person>blocked = new ArrayList<>();
-        
+        System.out.println("Event 5 running: ");
         System.out.println("The rumor start at "+src.getName());
         System.out.println("The crush is at "+des.getName());
         methodTransfer(src,des,new ArrayList<Person>());

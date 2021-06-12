@@ -21,7 +21,7 @@ public class Sociopath {
         
 //        Event1.askQuestion(r.getPerson("v1"), r.getPerson("v3"), true);
 //        Event2.chitchat(r.getPerson("v1"), r.getPerson("v2"), r.getPerson("v3"), false);
-        Event3.haveLunch(r.getPerson("v3"),r);
+//        Event3.haveLunch(r.getPerson("v3"),r);
 //        Event4.arrangebook();
 //        Event5.meetCrush(r.getPerson("v3"), r.getPerson("v7"));
 //        Event6.friendShip();
