@@ -23,6 +23,7 @@ public class Event1 {
             System.out.println("Before teaching, "+p1.getName()+" has "+p1.getRep(p2)+" reputation point towards "+p2.getName()+".");
             p1.addF(p2, 1); //make them friends
             p2.addF(p1, 1); //make them friends
+            
             //true=teaches well, false=teaches badly
             if (rate){ //teaches well
                 p1.setRep(p2, 10); //reputation point +10
