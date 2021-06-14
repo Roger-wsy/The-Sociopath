@@ -12,56 +12,60 @@ import java.util.LinkedList;
  * @author chunfang
  */
 public class Person {
-    private String name;
+    private String name;   
     private int div_rate;
     private int [] lun_time;
     private int [] lun_period;
-    LinkedList<Friend> friend = new LinkedList<>();
-    LinkedList<Reputation> reputation = new LinkedList<>();
-
-    public Person(String name) {
+    LinkedList<Friend> friend = new LinkedList<>();         //to store a list of friends
+    LinkedList<Reputation> reputation = new LinkedList<>(); //to store other people's reputation points for that person
+    //constructor
+    public Person(String name) {    
         this.name = name;
     }
-
-    public Person(String name, int div_rate, int [] lun_time,int [] lun_period){
+    //constructor
+    public Person(String name, int div_rate, int [] lun_time,int [] lun_period){    
         this.name = name;
         this.div_rate = div_rate;
         this.lun_time = lun_time;
         this.lun_period = lun_period;
     }
-    public void addF(Person p2, int type){
+    //add a new friend
+    public void addF(Person p2, int type){  
         Friend f = new Friend(p2,type);
         friend.add(f);
     }
     
+    //add reputation point
     public void addRep(Person p, int rep){
         Reputation re = new Reputation(p,rep);
         reputation.add(re);
     }
-    
+    //return the name of person
     public String getName() {
         return name;
     }
-
+    //set the name of the person
     public void setName(String name) {
         this.name = name;
     }
 
+    //return diving rate
     public int getDiv_rate() {
         return div_rate;
     }
 
+    //set diving rate
     public void setDiv_rate(int div_rate) {
         this.div_rate = div_rate;
     }
 
-
-
+    //return name
     public String toString(){
         return name;
     }
-
-    public boolean containF(Person p){
+    
+    //check the person has that friends or not
+    public boolean containF(Person p){      
         for (int i = 0; i < friend.size(); i++) {
             if(friend.get(i).personDetail().equals(p)){
                 return true;
@@ -69,7 +73,9 @@ public class Person {
         }
         return false;
     }
-    public void setF(Person personB, int type) {
+    
+    //set the type of the friend(personB)
+    public void setF(Person personB, int type) {    
         int a=0;
         for(int i=0;i<friend.size();i++) {
             if (friend.get(i).personDetail().equals(personB)) {
@@ -78,6 +84,8 @@ public class Person {
         }
         friend.get(a).setType(type);
     }
+    
+    //get average lunch time
     public int getAveLunT(){
         int sum = 0;
         for (int i = 0; i < lun_time.length; i++) {
@@ -89,6 +97,8 @@ public class Person {
         }
         return ave;
     }
+    
+    //get average lunch time
     public int getAveLunP(){
         int sum = 0;
         for (int i = 0; i < lun_period.length; i++) {
@@ -98,6 +108,7 @@ public class Person {
         return ave;
     }
     
+    //get reputation point of person p
     public int getRep(Person p){
         for (int i = 0; i < reputation.size(); i++) {
             if(reputation.get(i).personDetail().equals(p)){
@@ -106,6 +117,8 @@ public class Person {
         }
         return 0;
     }
+    
+    //set reputation point of Person p
     public void setRep(Person p, int rep){
         for (int i = 0; i < reputation.size(); i++) {
             if(reputation.get(i).personDetail().equals(p)){
