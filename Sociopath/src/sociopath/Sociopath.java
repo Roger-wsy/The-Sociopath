@@ -37,6 +37,10 @@ public class Sociopath {
     
     
     public static void init(Relationship r){
+        // initialize person info (name, div_rate, lun_time, lun_period) addPerson in Relationship class)
+        // 0 < Diving rate (%) < 100        
+        // 1100 <= lunch time <= 1400
+        // 5 < lunch period(minutes) < 60
         r.addPerson("v1",10, new int[] {1145, 1145, 1145, 1245, 1245, 1300, 1300}, new int[] {15, 20, 25, 15, 20, 30, 30});
         r.addPerson("v2",15, new int[] {1315, 1315, 1215, 1215, 1315, 1330, 1330}, new int[] {30, 25, 30, 25, 30, 35, 35});
         r.addPerson("v3",20, new int[] {1200, 1230, 1300, 1100, 1400, 1130, 1330}, new int[] {30, 30, 30, 30, 30, 55, 55});
@@ -48,6 +52,8 @@ public class Sociopath {
         r.addPerson("v9",50, new int[] {1215, 1230, 1245, 1145, 1315, 1200, 1300}, new int[] {25, 25, 25, 25, 25, 45, 45});
         r.addPerson("v10",5, new int[] {1215, 1230, 1245, 1215, 1245, 1230, 1230}, new int[] {30, 30, 30, 30, 30, 40, 40});
         
+        //set reputation
+        //1 <= rep <= 10        
         r.getPerson("v1").setRep(r.getPerson("v2"), 5);
         r.getPerson("v1").setRep(r.getPerson("v7"), 4);
         r.getPerson("v2").setRep(r.getPerson("v1"), 8);
@@ -65,6 +71,7 @@ public class Sociopath {
         r.getPerson("v10").setRep(r.getPerson("v4"), 7);
         r.getPerson("v10").setRep(r.getPerson("v9"), 6);
 
+        //make them become friends
         r.addFriend(r.getPerson("v1"), r.getPerson("v2"));
         r.addFriend(r.getPerson("v1"), r.getPerson("v7"));
         r.addFriend(r.getPerson("v2"), r.getPerson("v3"));
