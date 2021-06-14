@@ -14,7 +14,7 @@ import java.util.LinkedList;
  * @author chunfang
  */
 public class Event3 {
-    //have lunch
+    //method to let someone to have lunch with his/her interested people to increase reputation point
     public static void haveLunch(Person p, Relationship r){
         HashMap<Person,Integer> map = new HashMap<>();
         System.out.println("Event 3 running:");
