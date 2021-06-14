@@ -21,6 +21,7 @@ public class Extra7 {
         path.clear();
         System.out.println("Extra feature 7 running: ");
         addKen(r);
+        System.out.println("The targeted person is "+src.getName());
         methodTransfer(src, r.getPerson("Ken Thompson"), new ArrayList<Person>());
         if (path.size() == 0) {
             System.out.println("no connection");
