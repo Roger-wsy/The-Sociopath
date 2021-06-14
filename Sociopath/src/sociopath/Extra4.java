@@ -22,9 +22,11 @@ public class Extra4 {
         HashMap<Person,Integer> map = new HashMap<>();
         System.out.println("Extra feature 4 running:");
         System.out.println(p.getName()+" wants to have lunch with people with high reputation.");
+        // get the targeted person start eating time, eating period and end eating time
         int start = p.getAveLunT();
         int eat_period = p.getAveLunP();
         int end = start+eat_period;
+        // round the time to the correct format
         if(end%100>=60){
             end+=40;
         }
@@ -34,6 +36,7 @@ public class Extra4 {
             if(endeat%100>=60){
                 endeat+=40;
             }
+            // find all the person ending time
             map.put(arr.get(i),endeat);
             System.out.println(arr.get(i).getName()+" Start : "+arr.get(i).getAveLunT()+" End : "+endeat+"  Rep point : "+r.getAveRep(arr.get(i)));
         }
@@ -43,6 +46,7 @@ public class Extra4 {
         System.out.println(p.getName()+" || Lunch start : "+start+" || Lunch end : "+end);
         System.out.println("");
         int count = 0;
+        // compare the time to get which person eat faster.
         ArrayList<Person> eating = new ArrayList<>();
         Person eat = arr.get(0);
         int time = 2400;
@@ -56,18 +60,23 @@ public class Extra4 {
                 }
             }  
         }
+        // add the first person to the list
+        // if detect the person inside the waiting list add to the table to eat together
         if(change){
             eating.add(eat);
             System.out.println(p.getName()+" invite "+eat.getName()+" to eat together");
             System.out.println("");
         }       
+        // if still got person on the table search for the person waiting for eat
         while(eating.size()!=0){
             eat = arr.get(0);
             if(start<end){
+                // if the table not full yet find another person 
                 while(eating.size()<3){
                     eat = arr.get(0);
                     time = 2400;
                     change = false;
+                    // compare the time to get which person eat faster.            
                     for (int i = 0; i < arr.size(); i++) {
                         if(map.get(arr.get(i))>start){          
                             if(map.get(arr.get(i))<time){
@@ -79,6 +88,8 @@ public class Extra4 {
                             }
                         }  
                     }
+                    // add the person to the list
+                    // if detect the person inside the waiting list add to the table to eat together
                     if(change==false){
                         break;
                     }else{
@@ -88,21 +99,24 @@ public class Extra4 {
                     }
                 }
             }
-           
+            
             count++;
             
             start = map.get(eating.get(0));
             System.out.println(eating.get(0)+" finish his/her lunch at "+map.get(eating.get(0)));
             int a = eating.get(0).getRep(p);
+            //update the person reputation
             eating.get(0).setRep(p, eating.get(0).getRep(p)+1);
             System.out.println("Result : Rep point of "+eating.get(0).getName()+ " to "+p.getName()+" change from "+a+" to "+eating.get(0).getRep(p));
             System.out.println("");
+            // remove the person in the table and minus the size by 1
             eating.remove(0);
             
         }
         System.out.println("Max reputation gained by "+p.getName()+" is "+count);
     }
     
+    // find the personlist that are with higer reliability (higher reputation)
     public static ArrayList<Person> getlistPerson(Person p,Relationship r){
         ArrayList<Person> arr = new ArrayList<>();
         LinkedList<Person> personlist = r.toLinkedList();
