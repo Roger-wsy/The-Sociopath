@@ -30,6 +30,8 @@ public class Relationship {
         }
         v.add(p);
     }
+    
+    //add one person into the LinkedList
     public void addPerson(String name, int div_rate, int [] lun_time,int [] lun_period){
         Person p = new Person(name,div_rate,lun_time,lun_period);
         for (int i = 0; i < v.size(); i++) {
@@ -40,15 +42,19 @@ public class Relationship {
         }
         v.add(p);
     }
+    
+    //add one person into the LinkedList
     public void addFriend(Person p1 ,Person p2, int type){
-        p1.addF(p2, type);
-        p2.addF(p1, type);
+        p1.addF(p2, type);// add person2 into person1's friends list
+        p2.addF(p1, type);// add person1 into person2's friends list
     }
+    
     public void addFriend(Person p1 ,Person p2){
-        p1.addF(p2, 1);
-        p2.addF(p1, 1);
+        p1.addF(p2, 1);// add person2 into person1's friends list
+        p2.addF(p1, 1);// add person1 into person2's friends list
     }
-
+    
+    //search and return the person info with name
     public Person getPerson(String name){
         for (int i = 0; i < v.size(); i++) {
             if(v.get(i).getName().equals(name)){
@@ -58,6 +64,7 @@ public class Relationship {
         return null;
     }
 
+    //get the average reputation point
     public int getAveRep(Person p){
         int sum = 0; 
         int count = 0;
@@ -74,9 +81,12 @@ public class Relationship {
         return sum/count;
     }
     
+    //search and return the person by using index
     public Person getPerson(int a){
         return v.get(a);
     }
+    
+    //print the vertex and its edge in the graph
     public String toString(){
         String z ="All vertex : ";
         for (int i = 0; i < v.size(); i++) {
@@ -96,6 +106,8 @@ public class Relationship {
         }
         return z;
     }
+    
+    //check whether the list contains the person
     public boolean contains(String name){
         for (int i = 0; i < v.size(); i++) {
             if(v.get(i).getName().equals(name)){
@@ -104,6 +116,8 @@ public class Relationship {
         }
         return false;
     }
+    
+    //copy the contents into Person[] array
     public Person[] toArray(){
         Person[] p = new Person[v.size()];
         for (int i = 0; i < v.size(); i++) {
