@@ -14,9 +14,11 @@ import java.util.LinkedList;
  * @author chunfang
  */
 public class Event3 {
+    //have lunch
     public static void haveLunch(Person p, Relationship r){
         HashMap<Person,Integer> map = new HashMap<>();
         System.out.println("Event 3 running:");
+        //calculate lunch start and end time of p
         System.out.println(p.getName()+" wants to have lunch with people with high reputation.");
         int start = p.getAveLunT();
         int eat_period = p.getAveLunP();
@@ -24,7 +26,9 @@ public class Event3 {
         if(end%100>=60){
             end+=40;
         }
+        //get the list of interested people to have lunch
         ArrayList<Person> arr = getlistPerson(p,r);
+        //calculate lunch start and end time of interested people and put into hashmap
         System.out.println("Target people : ");
         for (int i = 0; i < arr.size(); i++) {
             int endeat = arr.get(i).getAveLunP()+arr.get(i).getAveLunT();
@@ -40,6 +44,7 @@ public class Event3 {
         System.out.println(p.getName()+" || Lunch start : "+start+" || Lunch end : "+end);
         System.out.println("");
         int count = 0;
+        //a while loop to let p have lunch with his/her interested people one by one in ascending order of time
         while(start<end){
             Person eat = arr.get(0);
             int time = 2400;
@@ -67,6 +72,7 @@ public class Event3 {
             }else{
                 System.out.println(p.getName()+" eat with "+eat.getName()+" Time : "+start+" to "+map.get(eat));
             }
+            //increase the reputation point of the people had lunch with p 
             int a = eat.getRep(p);
             eat.setRep(p, eat.getRep(p)+1);
             System.out.println("Result : Rep point of "+eat.getName()+ " to "+p.getName()+" change from "+a+" to "+eat.getRep(p));
@@ -77,6 +83,7 @@ public class Event3 {
         System.out.println("Max reputation gained by "+p.getName()+" is "+count);
     }
     
+    //get the list of interested people to have lunch with, in this case, p only wants to have lunch with people who have average reputation point >= 6
     public static ArrayList<Person> getlistPerson(Person p,Relationship r){
         ArrayList<Person> arr = new ArrayList<>();
         LinkedList<Person> personlist = r.toLinkedList();
